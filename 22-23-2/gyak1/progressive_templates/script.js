@@ -38,3 +38,9 @@ const onObserve = (entries) => {
 const observer = new IntersectionObserver(onObserve, { threshold: 1.0 });
 
 document.querySelectorAll("[data-scroll]").forEach((e) => observer.observe(e));
+
+// Landing page – számláló pörgetése Tedd lehetővé, hogy egy számot tartalmazó elem 0-tól felpörögjön az aktuális értékére! Az elemet deklaratívan paraméterezzük fel data attribútumokon keresztül! Eleinte az elemre kattintva történjen meg a számlálás, később a viewportba érve induljon el!
+$("footer").click(() => {
+  $("footer #year").animateNumber({ number: 2023 });
+});
+// $("#lines").animateNumber({ number: 165 });
