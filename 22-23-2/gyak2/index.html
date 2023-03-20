@@ -5,15 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Megyetáblázat</title>
+    <style>
+      table{
+        background-color: lightseagreen;
+      }
+    </style>
   </head>
   <body>
-    <table id="table1">
-      <thead>
-        <tr>
-          <th>Gyümölcs</th>
-          <th>Vármegye</th>
-        </tr>
-      </thead>
+      <table is="sortable-table">
+        <thead>
+          <tr>
+            <th>Gyümölcs</th>
+            <th>Vármegye</th>
+          </tr>
+        </thead>
       <tbody>
         <tr>
           <td>Alma</td>
