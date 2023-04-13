@@ -15,7 +15,7 @@ export const Playlists = () => {
   console.log(selectedPlaylist);
 
   return (
-    <div className="ui container">
+    <>
       <h1>My Playlists</h1>
       <div className="ui stackable two column grid">
         <div className="ui six wide column">
@@ -29,6 +29,6 @@ export const Playlists = () => {
       </div>
       <div className="ui divider"></div>
       <TrackDetails />
-    </div>
+    </>
   );
 };

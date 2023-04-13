@@ -1,15 +1,16 @@
+import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo.png";
 
-export function Menu() {
+function Menu() {
   return (
     <nav className="ui secondary menu">
       <img src={logo} alt="" />
-      <a className="item" href="index.html">
+      <NavLink className="item" to="/">
         <i className="home icon"></i> Home
-      </a>
-      <a className="item" href="playlists.html">
+      </NavLink>
+      <NavLink className="item" to="/playlists">
         <i className="headphones icon"></i> My Playlists
-      </a>
+      </NavLink>
       <a className="item" href="tracks.html">
         <i className="music icon"></i> Tracks
       </a>
@@ -34,3 +35,5 @@ export function Menu() {
     </nav>
   );
 }
+
+export default Menu;

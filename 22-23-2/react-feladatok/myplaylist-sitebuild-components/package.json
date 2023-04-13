@@ -8,6 +8,9 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "classnames": "^2.3.2",
+    "fomantic-ui": "^2.9.2",
+    "jquery": "^3.6.4"
+  }
 }
