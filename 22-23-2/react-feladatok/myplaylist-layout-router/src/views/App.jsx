@@ -11,7 +11,9 @@ export function App() {
     <Layout>
       <Routes>
         <Route element={<Home />} path="/" />
-        <Route element={<Playlists />} path="/playlists" />
+        <Route element={<Playlists />} path="/playlists">
+          <Route path=":playlistId" element={<Playlists />} />
+        </Route>
       </Routes>
     </Layout>
   );
