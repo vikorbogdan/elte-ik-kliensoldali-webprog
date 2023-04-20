@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="flex gap-5 px-5">
+    <nav className="flex gap-5 px-5 bg-yellow-700 font-nunito text-yellow-50 text-3xl">
       <Link className="mr-auto" to="/">
         AniDex
       </Link>
