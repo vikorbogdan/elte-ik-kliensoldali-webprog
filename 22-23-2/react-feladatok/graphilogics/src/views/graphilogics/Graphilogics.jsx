@@ -1,4 +1,9 @@
+import { useDispatch, useSelector } from "react-redux";
+import { clickCell, colors, selectTable } from "../../store/nonogramSlice/nonogramSlice";
+
 export const GraphiLogics = () => {
+  const { leftNumbers, upperNumbers, table } = useSelector(selectTable);
+  const dispatch = useDispatch();
   return (
     <table id="layout">
       <tbody>
@@ -8,16 +13,13 @@ export const GraphiLogics = () => {
             <table id="felso">
               <tbody>
                 <tr>
-                  <td>
-                    <span>1</span>
-                    <span>2</span>
-                  </td>
-                  <td>
-                    <span>1</span>
-                  </td>
-                  <td>
-                    <span>1</span>
-                  </td>
+                  {upperNumbers.map((col, colIdx) => (
+                    <td key={colIdx}>
+                      {col.map((num, numIdx) => (
+                        <span key={numIdx}>{num}</span>
+                      ))}
+                    </td>
+                  ))}
                 </tr>
               </tbody>
             </table>
@@ -27,51 +29,40 @@ export const GraphiLogics = () => {
           <td>
             <table id="bal">
               <tbody>
-                <tr>
-                  <td>
-                    <span>1</span>
-                    <span>1</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <span>1</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span>2</span>
-                  </td>
-                </tr>
+                {leftNumbers.map((row, rowIdx) => (
+                  <tr key={rowIdx}>
+                    <td>
+                      {row.map((col, colIdx) => (
+                        <span key={colIdx}>{col}</span>
+                      ))}
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </td>
           <td>
             <table id="tabla">
               <tbody>
-                <tr>
-                  <td className="feher"></td>
-                  <td className="szurke"></td>
-                  <td className="fekete"></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
+                {table.map((row, rowIdx) => (
+                  <tr key={rowIdx}>
+                    {row.map((cell, cellIdx) => (
+                      <td
+                        onClick={() => dispatch(clickCell({ x: rowIdx, y: cellIdx }))}
+                        className={
+                          cell === colors.WHITE
+                            ? "feher"
+                            : cell === colors.BLACK
+                            ? "fekete"
+                            : cell === colors.GREY
+                            ? "szurke"
+                            : ""
+                        }
+                        key={cellIdx}
+                      ></td>
+                    ))}
+                  </tr>
+                ))}
               </tbody>
             </table>
           </td>
