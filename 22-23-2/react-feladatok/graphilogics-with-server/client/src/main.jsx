@@ -5,6 +5,7 @@ import "./grafilogika.css";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import { store } from "./state/store";
+import { fetchGraphilogicsList } from "./state/graphilogics/graphilogicsListSlice";
 // import { store } from "./state/store";
 // import { Provider } from "react-redux";
 // import { selectTable } from "./state/graphilogics/graphiLogicsSlice";
@@ -27,7 +28,8 @@ root.render(
 // const unsubscribe = store.subscribe(() => console.log("State after dispatch: ", store.getState()));
 
 // Now, dispatch some actions
-store.dispatch({ type: "graphilogics/start", payload: ["# #", " # ", "# #"] });
+// store.dispatch({ type: "graphilogics/start", payload: ["# #", " # ", "# #"] });
+store.dispatch(fetchGraphilogicsList());
 // console.log(selectTable(store.getState()));
 
 // unsubscribe();

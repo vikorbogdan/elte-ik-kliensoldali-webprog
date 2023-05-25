@@ -1,15 +1,18 @@
-import { useDispatch } from "react-redux";
-import { finishSolutionCheck, startSolutionCheck } from "../state/graphilogics/graphilogicsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { checkSolution } from "../state/graphilogics/graphilogicsSlice";
 import { GraphiLogics } from "./graphilogics/Graphilogics";
+import { useFetchGraphilogicsListQuery } from "../api/graphilogicsApiSlice";
+import { selectLoggedInUser } from "../state/auth/authSlice";
+import Login from "./login/Login";
 
 function App() {
-  const checkSolution = () => {
-    return (dispatch) => {
-      dispatch(startSolutionCheck());
-      setTimeout(() => dispatch(finishSolutionCheck()), 3000);
-    };
-  };
   const dispatch = useDispatch();
+  const result = useFetchGraphilogicsListQuery();
+  console.log(result);
+  const user = useSelector(selectLoggedInUser);
+  if (!user) {
+    return <Login />;
+  }
   return (
     <>
       <h1>Graphilogics</h1>

@@ -30,6 +30,12 @@ export const graphilogicsSlice = createSlice({
     },
   },
 });
+export const checkSolution = () => {
+  return (dispatch) => {
+    dispatch(startSolutionCheck());
+    setTimeout(() => dispatch(finishSolutionCheck()), 3000);
+  };
+};
 
 export const { start, clickCell, startSolutionCheck, finishSolutionCheck } = graphilogicsSlice.actions;
 export const graphilogicsReducer = graphilogicsSlice.reducer;
