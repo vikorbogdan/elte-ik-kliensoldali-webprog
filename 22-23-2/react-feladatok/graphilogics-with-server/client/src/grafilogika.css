@@ -40,3 +40,7 @@ body {
 #tabla .szurke {
   background-color: gray;
 }
+#tabla .rossz {
+  background-color: crimson;
+  transition: background-color 0.5s;
+}
