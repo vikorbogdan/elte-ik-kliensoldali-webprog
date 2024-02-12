@@ -1,4 +1,43 @@
+import { useDispatch, useSelector } from "react-redux";
+import { clickCell, colors } from "../../state/graphilogics/graphilogicsSlice";
+const selectTable = (state) => {
+  const { solution, table, solutionChecked } = state.graphilogics;
+  return { solution, table, solutionChecked };
+};
+
 export const GraphiLogics = () => {
+  const { solution, solutionChecked, table } = useSelector(selectTable);
+  const getResults = (value, solution) => {
+    console.log(solutionChecked);
+    if (
+      solutionChecked &&
+      ((value === colors.BLACK && solution === false) || (value === colors.GREY && solution === true))
+    ) {
+      return false;
+    }
+    return true;
+  };
+  const dispatch = useDispatch();
+  const leftNumbers = solution.map((row) =>
+    row
+      .map((b) => (b ? "#" : " "))
+      .join("")
+      .trim()
+      .split(" ")
+      .map((s) => s.length)
+      .filter(Boolean)
+  );
+  const upperNumbers = solution[0]
+    ? solution[0].map((_, i) =>
+        solution
+          .map((row) => (row[i] ? "#" : " "))
+          .join("")
+          .trim()
+          .split(" ")
+          .map((s) => s.length)
+          .filter(Boolean)
+      )
+    : [];
   return (
     <table id="layout">
       <tbody>
@@ -8,16 +47,13 @@ export const GraphiLogics = () => {
             <table id="felso">
               <tbody>
                 <tr>
-                  <td>
-                    <span>1</span>
-                    <span>2</span>
-                  </td>
-                  <td>
-                    <span>1</span>
-                  </td>
-                  <td>
-                    <span>1</span>
-                  </td>
+                  {upperNumbers.map((col, colIdx) => (
+                    <td key={colIdx}>
+                      {col.map((num, numIdx) => (
+                        <span key={numIdx}>{num}</span>
+                      ))}
+                    </td>
+                  ))}
                 </tr>
               </tbody>
             </table>
@@ -27,51 +63,44 @@ export const GraphiLogics = () => {
           <td>
             <table id="bal">
               <tbody>
-                <tr>
-                  <td>
-                    <span>1</span>
-                    <span>1</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <span>1</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span>2</span>
-                  </td>
-                </tr>
+                {leftNumbers.map((row, rowIdx) => (
+                  <tr key={rowIdx}>
+                    <td>
+                      {row.map((num, numIdx) => (
+                        <span key={numIdx}>{num}</span>
+                      ))}
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </td>
           <td>
             <table id="tabla">
               <tbody>
-                <tr>
-                  <td className="feher"></td>
-                  <td className="szurke"></td>
-                  <td className="fekete"></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
+                {table.map((row, rowIdx) => (
+                  <tr key={rowIdx}>
+                    {row.map((cell, cellIdx) => (
+                      <td
+                        onClick={() => dispatch(clickCell({ x: rowIdx, y: cellIdx }))}
+                        className={`
+                            ${
+                              getResults(cell, solution[rowIdx][cellIdx])
+                                ? cell === colors.WHITE
+                                  ? "feher"
+                                  : cell === colors.BLACK
+                                  ? "fekete"
+                                  : cell === colors.GREY
+                                  ? "szurke"
+                                  : ""
+                                : "rossz"
+                            }
+                            `}
+                        key={cellIdx}
+                      ></td>
+                    ))}
+                  </tr>
+                ))}
               </tbody>
             </table>
           </td>
