@@ -11,7 +11,29 @@
     <meta name="author" content="" />
 
     <title>Creative - Start Bootstrap Theme</title>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
 
+      progress {
+        width: 100%;
+        position: fixed;
+        z-index: 9999;
+      }
+
+      progress::-moz-progress-bar {
+        background: #f4623a;
+      }
+
+      progress::-webkit-progress-value {
+        background: #f4623a;
+      }
+
+      progress::-webkit-progress-bar {
+        background: #f4623a;
+      }
+    </style>
     <!-- Font Awesome Icons -->
     <link
       href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.10.2/css/all.min.css"
@@ -35,9 +57,16 @@
       href="https://cdn.jsdelivr.net/gh/BlackrockDigital/startbootstrap-creative@v5.1.8/css/creative.min.css"
       rel="stylesheet"
     />
+    <!-- Animate.CSS - For amazing animations -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
   </head>
 
   <body id="page-top">
+    <!-- Scroll Progress Bar -->
+    <progress id="file" max="100"></progress>
     <!-- Navigation -->
     <nav
       class="navbar navbar-expand-lg navbar-light fixed-top py-3"
@@ -130,11 +159,7 @@
     <!-- Services Section -->
     <section class="page-section" id="services">
       <div class="container">
-        <h2
-          class="text-center mt-0"
-          data-scroll
-          data-scroll-animation="fadeInUp"
-        >
+        <h2 class="text-center mt-0" data-scroll data-scroll-animation="rollIn">
           At Your Service
         </h2>
         <hr class="divider my-4" />
@@ -352,6 +377,7 @@
         </div>
       </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
