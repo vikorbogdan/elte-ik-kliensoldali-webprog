@@ -1,41 +1,45 @@
-const sortableTable = (tableId) => {
-  const tableElement = document.querySelector(`#${tableId}`);
-  const tableBodyElement = tableElement.querySelector("tbody");
-  const tableHeaderElement = tableElement.querySelector("thead");
+class SortableTable {
+  constructor(tableId) {
+    this.tableElement = document.querySelector(`#${tableId}`);
+    this.tableBodyElement = this.tableElement.querySelector("tbody");
+    this.tableHeaderElement = this.tableElement.querySelector("thead");
 
-  const tableBodyData = [...tableBodyElement.querySelectorAll("tr")].map(
-    (row) => [...row.querySelectorAll("td")].map((cell) => cell.innerText)
-  );
-
-  tableHeaderElement.style.cursor = "pointer";
-
-  tableHeaderElement.addEventListener("click", (event) => {
+    this.tableBodyData = [...this.tableBodyElement.querySelectorAll("tr")].map(
+      (row) => [...row.querySelectorAll("td")].map((cell) => cell.innerText)
+    );
+    this.tableHeaderElement.style.cursor = "pointer";
+    this.tableHeaderElement.addEventListener("click", this.onClick);
+  }
+  onClick = (event) => {
     const headerCellElement = event.target.closest("th");
     const headerElementIndex = headerCellElement.cellIndex;
 
-    tableBodyData.sort((a, b) =>
+    this.tableBodyData.sort((a, b) =>
       a[headerElementIndex].localeCompare(b[headerElementIndex])
     );
 
-    tableBodyElement.innerHTML = tableBodyData
+    this.tableBodyElement.innerHTML = this.renderTableBody();
+  };
+  renderTableBody = () => {
+    return this.tableBodyData
       .map(
         (row) => `
-    <tr>
-        ${row
-          .map(
-            (cell) => `
-        <td>
-            ${cell}
-        </td>
-        `
-          )
-          .join("")}
-    </tr>
-`
+      <tr>
+          ${row
+            .map(
+              (cell) => `
+          <td>
+              ${cell}
+          </td>
+          `
+            )
+            .join("")}
+      </tr>
+  `
       )
       .join("");
-  });
-};
+  };
+}
 
-sortableTable("table1");
-sortableTable("table2");
+new SortableTable("table1");
+new SortableTable("table2");
