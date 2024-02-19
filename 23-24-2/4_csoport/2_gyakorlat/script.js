@@ -1,8 +1,10 @@
-class SortableTable {
+class SortableTable extends HTMLTableElement {
   constructor(tableId) {
-    this.tableElement = document.querySelector(`#${tableId}`);
-    this.tableBodyElement = this.tableElement.querySelector("tbody");
-    this.tableHeaderElement = this.tableElement.querySelector("thead");
+    super();
+    console.log(this);
+    // this.tableElement = document.querySelector(`#${tableId}`);
+    this.tableBodyElement = this.querySelector("tbody");
+    this.tableHeaderElement = this.querySelector("thead");
 
     this.tableBodyData = [...this.tableBodyElement.querySelectorAll("tr")].map(
       (row) => [...row.querySelectorAll("td")].map((cell) => cell.innerText)
@@ -41,5 +43,4 @@ class SortableTable {
   };
 }
 
-new SortableTable("table1");
-new SortableTable("table2");
+customElements.define("sortable-table", SortableTable, { extends: "table" });
