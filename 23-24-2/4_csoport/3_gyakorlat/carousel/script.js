@@ -1,46 +1,49 @@
-class Carousel {
-  constructor(carouselElement) {
-    this.carouselElement = carouselElement;
-    this.imageElements = this.carouselElement.querySelectorAll("img");
+class Carousel extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+    this.styleElement = document.createElement("style");
+    this.styleElement.textContent = this.styleTextContent;
+    this.shadowRoot.appendChild(this.styleElement);
 
+    this.ulElement = this.querySelector("ul");
+    this.shadowRoot.appendChild(this.ulElement);
+    this.imageElements = this.ulElement.querySelectorAll("img");
     this.previousButtonElement = document.createElement("button");
     this.nextButtonElement = document.createElement("button");
 
     this.previousButtonElement.innerText = "Previous";
     this.nextButtonElement.innerText = "Next";
 
-    this.carouselElement.appendChild(this.previousButtonElement);
-    this.carouselElement.appendChild(this.nextButtonElement);
+    this.shadowRoot.appendChild(this.previousButtonElement);
+    this.shadowRoot.appendChild(this.nextButtonElement);
 
     this.previousButtonElement.addEventListener("click", this.handlePrevious);
     this.nextButtonElement.addEventListener("click", this.handleNext);
 
-    this.styleElement = document.createElement("style");
-    this.styleElement.textContent = this.styleTextContent;
-    document.head.appendChild(this.styleElement);
-
     this.render();
   }
   styleTextContent = `
-  #carousel ul {
-    list-style: none;
-    width: 300px;
-    height: 200px;
-    overflow: hidden;
-    position: relative;
-    padding: 0;
-    margin: 0;
-  }
-  #carousel ul li {
-    position: absolute;
-    width: 300px;
-    height: 200px;
-  }
-  #carousel ul li img {
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-  }
+    ul {
+        list-style: none;
+        width: 300px;
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+        padding: 0;
+        margin: 0;
+        color: red;
+    }
+    ul li {
+        position: absolute;
+        width: 300px;
+        height: 200px;
+    }
+    ul li img {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+   }
   .active {
     opacity: 1 !important;
   }`;
@@ -64,5 +67,4 @@ class Carousel {
     this.render();
   };
 }
-
-const carousel = new Carousel(document.querySelector("#carousel"));
+customElements.define("img-carousel", Carousel);
