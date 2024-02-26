@@ -1,33 +1,68 @@
-const carouselElement = document.querySelector("#carousel");
-const imageElements = carouselElement.querySelectorAll("img");
+class Carousel {
+  constructor(carouselElement) {
+    this.carouselElement = carouselElement;
+    this.imageElements = this.carouselElement.querySelectorAll("img");
 
-let activeIndex = 0;
+    this.previousButtonElement = document.createElement("button");
+    this.nextButtonElement = document.createElement("button");
 
-const render = () => {
-  imageElements.forEach((image, index) => {
-    image.classList.toggle("active", index === activeIndex);
-  });
-};
+    this.previousButtonElement.innerText = "Previous";
+    this.nextButtonElement.innerText = "Next";
 
-const previousButtonElement = document.createElement("button");
-const nextButtonElement = document.createElement("button");
+    this.carouselElement.appendChild(this.previousButtonElement);
+    this.carouselElement.appendChild(this.nextButtonElement);
 
-previousButtonElement.innerText = "Previous";
-nextButtonElement.innerText = "Next";
+    this.previousButtonElement.addEventListener("click", this.handlePrevious);
+    this.nextButtonElement.addEventListener("click", this.handleNext);
 
-carouselElement.appendChild(previousButtonElement);
-carouselElement.appendChild(nextButtonElement);
+    this.styleElement = document.createElement("style");
+    this.styleElement.textContent = this.styleTextContent;
+    document.head.appendChild(this.styleElement);
 
-const handlePrevious = () => {
-  activeIndex = (activeIndex - 1 + imageElements.length) % imageElements.length;
-  render();
-};
-const handleNext = () => {
-  activeIndex = (activeIndex + 1) % imageElements.length;
-  render();
-};
+    this.render();
+  }
+  styleTextContent = `
+  #carousel ul {
+    list-style: none;
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+    margin: 0;
+  }
+  #carousel ul li {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+  }
+  #carousel ul li img {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+  .active {
+    opacity: 1 !important;
+  }`;
+  activeIndex = 0;
 
-previousButtonElement.addEventListener("click", handlePrevious);
-nextButtonElement.addEventListener("click", handleNext);
+  render = () => {
+    this.imageElements.forEach((image, index) => {
+      image.classList.toggle("active", index === this.activeIndex);
+    });
+  };
 
-render();
+  handlePrevious = () => {
+    this.activeIndex =
+      (this.activeIndex - 1 + this.imageElements.length) %
+      this.imageElements.length;
+    this.render();
+  };
+
+  handleNext = () => {
+    this.activeIndex = (this.activeIndex + 1) % this.imageElements.length;
+    this.render();
+  };
+}
+
+const carousel = new Carousel(document.querySelector("#carousel"));
