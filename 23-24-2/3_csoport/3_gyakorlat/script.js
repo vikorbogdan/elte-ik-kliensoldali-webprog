@@ -1,39 +1,72 @@
-const carouselElement = document.querySelector("#carousel");
-const imageElements = carouselElement.querySelectorAll("img");
+class Carousel {
+  constructor(carouselElement) {
+    this.carouselElement = carouselElement;
+    this.imageElements = this.carouselElement.querySelectorAll("img");
+    this.styleElement = document.createElement("style");
+    this.styleElement.textContent = this.styleTextContent;
+    document.head.appendChild(this.styleElement);
+    this.previousButton = document.createElement("button");
+    this.nextButton = document.createElement("button");
+    this.previousButton.innerText = "Previous";
+    this.nextButton.innerText = "Next";
+    this.carouselElement.appendChild(this.previousButton);
+    this.carouselElement.appendChild(this.nextButton);
 
-let activeIndex = 0;
+    this.previousButton.addEventListener(
+      "click",
+      this.previousImageButtonHandler
+    );
+    this.nextButton.addEventListener("click", this.nextImageButtonHandler);
 
-// Egy olyan függvény, ami activeIndex alapján jeleníti meg a helyes képet
-const render = () => {
-  imageElements.forEach((image, index) => {
-    image.classList.toggle("active", index === activeIndex);
-  });
-};
+    this.render();
+  }
 
-// setInterval(() => {
-//   activeIndex = (activeIndex + 1) % imageElements.length;
-//   render();
-// }, 500);
+  activeIndex = 0;
+  styleTextContent = `
+.carousel ul {
+    list-style: none;
+    overflow: hidden;
+    height: 200px;
+    width: 300px;
+    position: relative;
+  }
+  .carousel ul li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 200px;
+  }
+  .carousel ul li img {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+  .active {
+    opacity: 1 !important;
+  }
+  .hidden {
+    opacity: 0;
+  }
+`;
 
-const previousButton = document.createElement("button");
-const nextButton = document.createElement("button");
+  render = () => {
+    this.imageElements.forEach((image, index) => {
+      image.classList.toggle("active", index === this.activeIndex);
+    });
+  };
 
-previousButton.innerText = "Previous";
-nextButton.innerText = "Next";
+  previousImageButtonHandler = () => {
+    this.activeIndex =
+      (this.activeIndex - 1 + this.imageElements.length) %
+      this.imageElements.length;
+    this.render();
+  };
+  nextImageButtonHandler = () => {
+    this.activeIndex = (this.activeIndex + 1) % this.imageElements.length;
+    this.render();
+  };
+}
 
-carouselElement.appendChild(previousButton);
-carouselElement.appendChild(nextButton);
-
-const previousImageButtonHandler = () => {
-  activeIndex = (activeIndex - 1 + imageElements.length) % imageElements.length;
-  render();
-};
-const nextImageButtonHandler = () => {
-  activeIndex = (activeIndex + 1) % imageElements.length;
-  render();
-};
-
-previousButton.addEventListener("click", previousImageButtonHandler);
-nextButton.addEventListener("click", nextImageButtonHandler);
-
-render();
+const carousel = new Carousel(document.querySelector("#carousel"));
+const carousel2 = new Carousel(document.querySelector("#carousel2"));
