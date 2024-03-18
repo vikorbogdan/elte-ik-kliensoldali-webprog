@@ -1,7 +1,9 @@
 import Playlists from "./pages/Playlists";
 import Logo from "./assets/logo.png";
+import Tracks from "./pages/Tracks";
 
 function App() {
+  const currentSite = "tracks";
   return (
     <>
       <nav className="ui secondary menu">
@@ -34,7 +36,7 @@ function App() {
           </div>
         </div>
       </nav>
-      <Playlists />
+      {currentSite === "tracks" ? <Tracks /> : <Playlists />}
     </>
   );
 }
