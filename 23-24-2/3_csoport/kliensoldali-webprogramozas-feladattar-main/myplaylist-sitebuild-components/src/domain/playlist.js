@@ -16,9 +16,4 @@ export const examplePlaylists = [
     title: "Movie Soundtracks",
     tracks: exampleTracks.slice(2, 3),
   },
-  {
-    id: 4,
-    title: "Songs from Musicals",
-    tracks: ["romeo és julia", "nem ismerek másikat"],
-  },
 ];

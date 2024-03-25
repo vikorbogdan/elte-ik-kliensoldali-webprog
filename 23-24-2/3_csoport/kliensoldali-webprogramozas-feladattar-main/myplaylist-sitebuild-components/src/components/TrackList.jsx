@@ -1,43 +1,17 @@
-const TrackList = () => {
+const TrackList = ({ tracks, playlistTitle }) => {
   return (
     <div className="ui ten wide column">
-      <h3>Classics</h3>
+      <h3>{playlistTitle}</h3>
       <div className="ui very relaxed selection list">
-        <div className="item">
-          <i className="large music middle aligned icon"></i>
-          <div className="content">
-            <a className="header">Highway to hell</a>
-            <div className="description">AC/DC</div>
+        {tracks.map((track) => (
+          <div key={track.id} className="item">
+            <i className="large music middle aligned icon"></i>
+            <div className="content">
+              <span className="header">{track.title}</span>
+              <div className="description">{track.artist}</div>
+            </div>
           </div>
-        </div>
-        <div className="item">
-          <i className="large music middle aligned icon"></i>
-          <div className="content">
-            <a className="header">Thunderstruck</a>
-            <div className="description">AC/DC</div>
-          </div>
-        </div>
-        <div className="item">
-          <i className="large music middle aligned icon"></i>
-          <div className="content">
-            <a className="header">Take me home country roads</a>
-            <div className="description">John Denver</div>
-          </div>
-        </div>
-        <div className="active item">
-          <i className="large music middle aligned icon"></i>
-          <div className="content">
-            <a className="header">It&apos;s my life</a>
-            <div className="description">Bon Jovi</div>
-          </div>
-        </div>
-        <div className="item">
-          <i className="large music middle aligned icon"></i>
-          <div className="content">
-            <a className="header">Livin&apos; on a prayer</a>
-            <div className="description">Bon Jovi</div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

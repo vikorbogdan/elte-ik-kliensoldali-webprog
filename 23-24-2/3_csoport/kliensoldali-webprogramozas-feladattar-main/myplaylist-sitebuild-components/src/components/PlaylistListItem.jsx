@@ -1,13 +1,14 @@
 import cn from "classnames";
-const PlaylistListItem = ({ title, countOfSongs, isActive }) => {
+import { Link } from "react-router-dom";
+const PlaylistListItem = ({ title, countOfSongs, isActive, id }) => {
   return (
-    <div className={cn("item", { active: isActive })}>
+    <Link to={`/playlists/${id}`} className={cn("item", { active: isActive })}>
       <i className="large compact disc middle aligned icon"></i>
       <div className="content">
-        <a className="header">{title}</a>
+        <span className="header">{title}</span>
         <div className="description">{countOfSongs} songs</div>
       </div>
-    </div>
+    </Link>
   );
 };
 

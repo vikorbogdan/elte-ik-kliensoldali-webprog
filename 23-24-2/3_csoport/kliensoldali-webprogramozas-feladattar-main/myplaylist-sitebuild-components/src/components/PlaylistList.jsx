@@ -1,15 +1,15 @@
-import PlaylistListItem from "./PlaylistListItem";
 import { examplePlaylists } from "../domain/playlist";
+import PlaylistListItem from "./PlaylistListItem";
 
-const PlaylistList = () => {
-  const activeIndex = 2;
+const PlaylistList = ({ activePlaylistId }) => {
   return (
     <div className="ui six wide column">
       <h3>Playlists</h3>
       <div className="ui very relaxed selection list">
         {examplePlaylists.map((elem) => (
           <PlaylistListItem
-            isActive={elem.id === activeIndex}
+            id={elem.id}
+            isActive={elem.id.toString() === activePlaylistId}
             key={elem.id}
             title={elem.title}
             countOfSongs={elem.tracks.length}
