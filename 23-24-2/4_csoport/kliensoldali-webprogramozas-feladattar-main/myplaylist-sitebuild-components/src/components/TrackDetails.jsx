@@ -1,4 +1,5 @@
 import BonjoviCover from "../assets/bonjovi.jpg";
+import TrackDetailButton from "./TrackDetailButton";
 
 const TrackDetails = () => {
   return (
@@ -15,33 +16,24 @@ const TrackDetails = () => {
               <span>4:35</span>
             </div>
             <div className="extra">
-              <a
-                href="https://open.spotify.com/track/0v1XpBHnsbkCn7iJ9Ucr1l"
-                className="ui button tiny green button"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i className="spotify icon"></i>
-                Listen on Spotify
-              </a>
-              <a
-                href="https://tabs.ultimate-guitar.com/tab/bon-jovi/its-my-life-chords-951538"
-                className="ui button tiny teal button"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i className="microphone icon"></i>
-                Show lyrics
-              </a>
-              <a
-                href="https://www.azlyrics.com/lyrics/bonjovi/itsmylife.html"
-                className="ui button tiny orange button"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i className="guitar icon"></i>
-                Show chords
-              </a>
+              <TrackDetailButton
+                url="https://open.spotify.com/track/0v1XpBHnsbkCn7iJ9Ucr1l"
+                bgColor="green"
+                icon="spotify"
+                label="Spotify"
+              />
+              <TrackDetailButton
+                url="https://www.azlyrics.com/lyrics/bonjovi/itsmylife.html"
+                bgColor="teal"
+                icon="microphone"
+                label="Lyrics"
+              />
+              <TrackDetailButton
+                url="https://tabs.ultimate-guitar.com/tab/bon-jovi/its-my-life-chords-951538"
+                bgColor="orange"
+                icon="guitar"
+                label="Guitar chords"
+              />
             </div>
           </div>
         </div>
