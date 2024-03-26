@@ -1,14 +1,15 @@
 import classNames from "classnames";
+import { Link } from "react-router-dom";
 
-const PlaylistListItem = ({ title, numberOfTracks, isActive, action }) => {
+const PlaylistListItem = ({ title, numberOfTracks, isActive, id }) => {
   return (
-    <div onClick={action} className={classNames("item", { active: isActive })}>
+    <Link to={`/playlists/${id}`} className={classNames("item", { active: isActive })}>
       <i className="large compact disc middle aligned icon"></i>
       <div className="content">
-        <a className="header">{title}</a>
+        <span className="header">{title}</span>
         <div className="description">{numberOfTracks} songs</div>
       </div>
-    </div>
+    </Link>
   );
 };
 

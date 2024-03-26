@@ -1,17 +1,14 @@
-import { useState } from "react";
 import PlaylistListItem from "./PlaylistListItem";
 
-const PlaylistList = ({ data }) => {
-  const [activeIndex, setActiveIndex] = useState(2);
+const PlaylistList = ({ data, playlistId }) => {
   return (
     <div className="ui six wide column">
       <h3>Playlists</h3>
       <div className="ui very relaxed selection list">
         {data.map((elem) => (
           <PlaylistListItem
-            action={() => setActiveIndex(elem.id)}
             id={elem.id}
-            isActive={activeIndex === elem.id}
+            isActive={playlistId === elem.id.toString()}
             key={elem.id}
             title={elem.title}
             numberOfTracks={elem.tracks.length}
