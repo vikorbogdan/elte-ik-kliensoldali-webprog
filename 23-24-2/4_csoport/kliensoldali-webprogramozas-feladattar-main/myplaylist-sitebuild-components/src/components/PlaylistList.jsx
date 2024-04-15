@@ -1,3 +1,4 @@
+import AddPlaylistModal from "./AddPlaylistModal";
 import PlaylistListItem from "./PlaylistListItem";
 
 const PlaylistList = ({ data, playlistId }) => {
@@ -14,13 +15,7 @@ const PlaylistList = ({ data, playlistId }) => {
             numberOfTracks={elem.tracks.length}
           />
         ))}
-        <div className="item" id="newPlaylist">
-          <i className="large green plus middle aligned icon"></i>
-          <div className="content">
-            <a className="header">New</a>
-            <div className="description">Create a new playlist</div>
-          </div>
-        </div>
+        <AddPlaylistModal />
       </div>
     </div>
   );

@@ -1,10 +1,10 @@
+import AddTrackModal from "../components/AddTrackModal";
+
 const Tracks = () => {
   return (
     <>
-      <a href="#" className="ui right floated green button" id="newModal">
-        <i className="plus icon"></i>
-        New track
-      </a>
+      <AddTrackModal />
+
       <h1>Tracks</h1>
       <table className="ui celled striped table">
         <thead>
