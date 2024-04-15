@@ -1,12 +1,11 @@
-import { examplePlaylists } from "../domain/playlist";
+import AddPlaylistModal from "./AddPlaylistModal";
 import PlaylistListItem from "./PlaylistListItem";
-
-const PlaylistList = ({ activePlaylistId }) => {
+const PlaylistList = ({ activePlaylistId, playlists, setPlaylists }) => {
   return (
     <div className="ui six wide column">
       <h3>Playlists</h3>
       <div className="ui very relaxed selection list">
-        {examplePlaylists.map((elem) => (
+        {playlists.map((elem) => (
           <PlaylistListItem
             id={elem.id}
             isActive={elem.id.toString() === activePlaylistId}
@@ -15,14 +14,7 @@ const PlaylistList = ({ activePlaylistId }) => {
             countOfSongs={elem.tracks.length}
           />
         ))}
-
-        <div className="item" id="newPlaylist">
-          <i className="large green plus middle aligned icon"></i>
-          <div className="content">
-            <a className="header">New</a>
-            <div className="description">Create a new playlist</div>
-          </div>
-        </div>
+        <AddPlaylistModal playlists={playlists} setPlaylists={setPlaylists} />
       </div>
     </div>
   );
