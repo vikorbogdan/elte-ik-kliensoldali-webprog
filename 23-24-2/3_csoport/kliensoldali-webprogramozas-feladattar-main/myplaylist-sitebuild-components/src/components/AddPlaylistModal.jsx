@@ -1,7 +1,10 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { Button, Modal, ModalActions, ModalContent, ModalDescription, ModalHeader } from "semantic-ui-react";
+import { PlaylistContext } from "../App";
 
-const AddPlaylistModal = ({ playlists, setPlaylists }) => {
+const AddPlaylistModal = () => {
+  const { playlists, setPlaylists } = useContext(PlaylistContext);
+
   const [open, setOpen] = useState(false);
   const [playlistName, setPlaylistName] = useState("");
   const [error, setError] = useState(false);

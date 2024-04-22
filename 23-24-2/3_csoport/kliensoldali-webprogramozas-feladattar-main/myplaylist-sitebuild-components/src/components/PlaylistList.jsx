@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import AddPlaylistModal from "./AddPlaylistModal";
 import PlaylistListItem from "./PlaylistListItem";
-const PlaylistList = ({ activePlaylistId, playlists, setPlaylists }) => {
+import { PlaylistContext } from "../App";
+const PlaylistList = ({ activePlaylistId }) => {
+  const { playlists } = useContext(PlaylistContext);
   return (
     <div className="ui six wide column">
       <h3>Playlists</h3>
@@ -14,7 +17,7 @@ const PlaylistList = ({ activePlaylistId, playlists, setPlaylists }) => {
             countOfSongs={elem.tracks.length}
           />
         ))}
-        <AddPlaylistModal playlists={playlists} setPlaylists={setPlaylists} />
+        <AddPlaylistModal />
       </div>
     </div>
   );
