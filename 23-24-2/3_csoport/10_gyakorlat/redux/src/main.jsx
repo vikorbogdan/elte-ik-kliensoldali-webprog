@@ -3,14 +3,14 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import App from "./App.jsx";
-import counterReducer from "./features/reducers/counter.js";
-import authReducer from "./features/reducers/auth.js";
 import "./index.css";
+import counterSlice from "./features/reducers/counter.js";
+import authSlice from "./features/reducers/auth.js";
 
 const store = configureStore({
   reducer: {
-    counter: counterReducer,
-    login: authReducer,
+    counter: counterSlice.reducer,
+    login: authSlice.reducer,
   },
 });
 
