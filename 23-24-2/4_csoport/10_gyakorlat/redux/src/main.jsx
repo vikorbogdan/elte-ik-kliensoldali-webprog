@@ -2,10 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
-import counterReducer from "./features/reducers/counter.js";
-import authReducer from "./features/reducers/auth.js";
+
+import { authReducer } from "./features/reducers/auth.js";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
+import { counterReducer } from "./features/reducers/counter.js";
 
 const store = configureStore(
   {

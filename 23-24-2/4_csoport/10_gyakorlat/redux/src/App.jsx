@@ -7,7 +7,7 @@ function App() {
   const counter = useSelector((state) => state.counter);
   const { value: isLoggedIn } = useSelector((state) => state.auth);
   const handleIncrement = () => {
-    dispatch(increment());
+    dispatch(increment({ incrementWith: 5 }));
   };
   const handleDecrement = () => {
     dispatch(decrement());

@@ -1,28 +1,54 @@
-import { createAction, createReducer } from "@reduxjs/toolkit";
+// import { createAction, createReducer } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   value: 0,
 };
-const increment = createAction("counter/increment");
-const decrement = createAction("counter/decrement");
 
-const counterReducer = createReducer(initialState, (builder) => {
-  builder
-    .addCase(increment, (state, action) => {
+const counterSlice = createSlice({
+  name: "counter",
+  initialState,
+  reducers: {
+    increment: (state, action) => {
       if (action.payload) {
         state.value += action.payload.incrementWith;
       } else {
         state.value++;
       }
-    })
-    .addCase(decrement, (state, action) => {
+    },
+    decrement: (state, action) => {
       if (action.payload) {
         state.value -= action.payload.decrementWith;
       } else {
         state.value--;
       }
-    });
+    },
+  },
 });
+export const { increment, decrement } = counterSlice.actions;
+export const { reducer: counterReducer } = counterSlice;
+export default counterSlice;
 
-export { increment, decrement };
-export default counterReducer;
+// const increment = createAction("counter/increment");
+// const decrement = createAction("counter/decrement");
+
+// const counterReducer = createReducer(initialState, (builder) => {
+//   builder
+//     .addCase(increment, (state, action) => {
+//       if (action.payload) {
+//         state.value += action.payload.incrementWith;
+//       } else {
+//         state.value++;
+//       }
+//     })
+//     .addCase(decrement, (state, action) => {
+//       if (action.payload) {
+//         state.value -= action.payload.decrementWith;
+//       } else {
+//         state.value--;
+//       }
+//     });
+// });
+
+// export { increment, decrement };
+// export default counterReducer;
