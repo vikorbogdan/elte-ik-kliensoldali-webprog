@@ -3,7 +3,20 @@ import { clickCell, colors, selectTable } from "../../store/nonogram/nonogramSli
 
 export const GraphiLogics = () => {
   const dispatch = useDispatch();
-  const { table, upperNumbers, leftNumbers } = useSelector(selectTable);
+  const { table, upperNumbers, leftNumbers, solution, isSolutionChecked } = useSelector(selectTable);
+
+  const getResults = (value, solution) => {
+    if (isSolutionChecked) {
+      if (value === colors.BLACK && solution === true) {
+        return true;
+      } else if (value === colors.GREY && solution === false) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+    return true;
+  };
   return (
     <table id="layout">
       <tbody>
@@ -51,13 +64,15 @@ export const GraphiLogics = () => {
                         onClick={() => dispatch(clickCell({ x: rowIdx, y: cellIdx }))}
                         key={cellIdx}
                         className={
-                          cell === colors.WHITE
-                            ? "feher"
-                            : cell === colors.BLACK
-                            ? "fekete"
-                            : cell === colors.GREY
-                            ? "szurke"
-                            : ""
+                          getResults(cell, solution[rowIdx][cellIdx])
+                            ? cell === colors.WHITE
+                              ? "feher"
+                              : cell === colors.BLACK
+                              ? "fekete"
+                              : cell === colors.GREY
+                              ? "szurke"
+                              : ""
+                            : "piros"
                         }
                       ></td>
                     ))}

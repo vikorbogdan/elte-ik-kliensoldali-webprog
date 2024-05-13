@@ -5,6 +5,7 @@ import "./grafilogika.css";
 import "./index.css";
 import { store } from "./store/store";
 import App from "./views/App";
+import { fetchNonogramList } from "./store/nonogramList/nonogramListSlice";
 const container = document.getElementById("root");
 const root = createRoot(container);
 root.render(
@@ -24,6 +25,12 @@ root.render(
 
 // // Now, dispatch some actions
 store.dispatch({ type: "nonogram/start", payload: ["# #", " # ", "# #"] });
-// console.log(selectTable(store.getState()));
+// store.dispatch({
+//   type: "nonogramList/setList",
+//   payload: [
+//     { id: 0, title: "öt pötty", puzzle: ["# #", " # ", "# #"] },
+//     { id: 1, title: "négyzet", puzzle: ["###", "# #", "###"] },
+//   ],
+// });
 
-// // unsubscribe();
+store.dispatch(fetchNonogramList());

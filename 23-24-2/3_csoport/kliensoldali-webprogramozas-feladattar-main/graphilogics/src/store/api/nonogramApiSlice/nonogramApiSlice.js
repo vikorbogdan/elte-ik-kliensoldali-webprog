@@ -8,8 +8,11 @@ export const nonogramApiSlice = createApi({
     fetchAllNonograms: builder.query({
       query: () => "puzzles",
     }),
+    fetchOneNonogram: builder.query({
+      query: (id) => `puzzles/${id}`,
+    }),
   }),
 });
 
 export const nonogramApiReducer = nonogramApiSlice.reducer;
-export const { useFetchAllNonogramsQuery } = nonogramApiSlice;
+export const { useFetchAllNonogramsQuery, useFetchOneNonogramQuery } = nonogramApiSlice;

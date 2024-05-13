@@ -40,3 +40,8 @@ body {
 #tabla .szurke {
   background-color: gray;
 }
+
+#tabla .piros {
+  background-color: crimson;
+  transition: background-color .3s;
+}

@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   solution: [], // a kitalálandó ábra
   table: [], // a felhasználó által módosítható tábla aktuális állapota
+  isSolutionChecked: false, // éppen pirosra kell-e színezni a hibásan bejelölt négyzeteket
 };
 
 export const colors = {
@@ -36,7 +37,13 @@ export const selectTable = (state) => {
       )
     : [];
 
-  return { table: table, solution: solution, leftNumbers, upperNumbers };
+  return {
+    table: table,
+    solution: solution,
+    leftNumbers,
+    upperNumbers,
+    isSolutionChecked: state.nonogram.isSolutionChecked,
+  };
 };
 
 const nonogramSlice = createSlice({
@@ -57,9 +64,22 @@ const nonogramSlice = createSlice({
       const { x, y } = action.payload;
       state.table[x][y] = (state.table[x][y] + 1) % 3;
     },
+    startSolutionCheck: (state) => {
+      state.isSolutionChecked = true;
+    },
+    stopSolutionCheck: (state) => {
+      state.isSolutionChecked = false;
+    },
   },
 });
 
+export const checkSolution = () => {
+  return (dispatch) => {
+    dispatch(startSolutionCheck());
+    setTimeout(() => dispatch(stopSolutionCheck()), 3000);
+  };
+};
+
 export default nonogramSlice;
-export const { start, clickCell } = nonogramSlice.actions;
+export const { start, clickCell, startSolutionCheck, stopSolutionCheck } = nonogramSlice.actions;
 export const { reducer: nonogramReducer } = nonogramSlice;
