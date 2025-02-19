@@ -1,4 +1,5 @@
-const tableElement = document.querySelector("table");
+function sortableTable(elementId){
+const tableElement = document.querySelector(`#${elementId}`);
 const tableBodyElement = tableElement.querySelector("tbody");
 const tableHeaderElement = tableElement.querySelector("thead");
 
@@ -28,3 +29,8 @@ function onHeaderClick(event) {
 }
 
 tableHeaderElement.addEventListener("click",onHeaderClick)
+
+}
+
+sortableTable("elso")
+sortableTable("masodik")
