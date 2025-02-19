@@ -1,20 +1,20 @@
 
-function sortableTable(elementId){
+class SortableTable extends HTMLTableElement {
 
-const tableElement = document.querySelector(`#${elementId}`);
-const tableBodyElement = tableElement.querySelector("tbody");
-const tableHeaderElement = tableElement.querySelector("thead")
+constructor(){
+    super();
+    this.tableBodyElement = this.querySelector("tbody");
+    this.tableHeaderElement = this.querySelector("thead")
+    this.tableData = [...this.tableBodyElement.querySelectorAll("tr")].map(tr => [...tr.querySelectorAll("td")].map(td => td.innerText))
+    this.tableHeaderElement.style.cursor = "pointer";
+    this.tableHeaderElement.addEventListener("click",this.onHeaderClick);
+}
 
-const tableData = [...tableBodyElement.querySelectorAll("tr")].map(tr => [...tr.querySelectorAll("td")].map(td => td.innerText))
 
-tableHeaderElement.style.cursor = "pointer";
-
-
-function onHeaderClick(event){
+onHeaderClick = (event) => {
     const headerCellElement = event.target.closest("th")
-
-    tableData.sort((a,b) => a[headerCellElement.cellIndex].localeCompare(b[headerCellElement.cellIndex]))
-tableBodyElement.innerHTML = tableData.map(row => `
+    this.tableData.sort((a,b) => a[headerCellElement.cellIndex].localeCompare(b[headerCellElement.cellIndex]))
+    this.tableBodyElement.innerHTML = this.tableData.map(row => `
     <tr>
         ${row.map(cell => `
             <td>
@@ -26,8 +26,8 @@ tableBodyElement.innerHTML = tableData.map(row => `
 
 }
 
-tableHeaderElement.addEventListener("click",onHeaderClick);
 }
 
-sortableTable("elso");
-sortableTable("masodik");
+customElements.define("sortable-table", SortableTable, {
+    extends: "table"
+})
