@@ -1,7 +1,8 @@
-class SortableTable {
-    constructor(tableElement){
-        this.tableBodyElement = tableElement.querySelector("tbody");
-        this.tableHeaderElement = tableElement.querySelector("thead");
+class SortableTable extends HTMLTableElement {
+    constructor(){
+        super();
+        this.tableBodyElement = this.querySelector("tbody");
+        this.tableHeaderElement = this.querySelector("thead");
         
         this.tableData = [...this.tableBodyElement.querySelectorAll("tr")]
         .map(row => [...row.querySelectorAll("td")]
@@ -31,6 +32,4 @@ onHeaderClick = (event) => {
     `
 }
 }
-
-const table1 = new SortableTable(document.querySelector("#elso"))
-const table2 = new SortableTable(document.querySelector("#masodik"))
+customElements.define("sortable-table", SortableTable, {extends: "table"})
