@@ -1,24 +1,25 @@
 import cn from "classnames";
 
-export function TrackList() {
+export function TrackList({ selectedPlaylist, selectedTrack, setSelectedTrack }) {
   return (
     <>
-      <h3>Playlist title</h3>
+      <h3>{selectedPlaylist.title}</h3>
       <div className="ui very relaxed selection list">
-        <div className={cn("item", { active: false })}>
-          <i className="large music middle aligned icon"></i>
-          <div className="content">
-            <div className="header">Track title</div>
-            <div className="description">Track artist</div>
+        {selectedPlaylist.tracks.map((track) => (
+          <div
+            onClick={() => {
+              setSelectedTrack(track);
+            }}
+            key={track.id}
+            className={cn("item", { active: selectedTrack.id === track.id })}
+          >
+            <i className="large music middle aligned icon"></i>
+            <div className="content">
+              <div className="header">{track.title}</div>
+              <div className="description">{track.artist}</div>
+            </div>
           </div>
-        </div>
-        <div className={cn("item", { active: false })}>
-          <i className="large music middle aligned icon"></i>
-          <div className="content">
-            <div className="header">Track title</div>
-            <div className="description">Track artist</div>
-          </div>
-        </div>
+        ))}
       </div>
     </>
   );
