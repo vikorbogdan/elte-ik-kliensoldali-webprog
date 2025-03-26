@@ -12,21 +12,19 @@ export const Playlists = () => {
   const playlists = examplePlaylists;
   // Computed values
   const selectedPlaylist = playlists.find((pl) => pl.id === selectedPlaylistId);
-  console.log(selectedPlaylist);
 
-  function handleClick() {
-    setSelectedPlaylistId(selectedPlaylistId + 1);
+  function handleClick(id) {
+    setSelectedPlaylistId(id);
   }
 
   return (
     <div className="ui container">
       <h1>My Playlists</h1>
-      <button onClick={handleClick}>Válts a harmadik elemre</button>
       <div className="ui stackable two column grid">
         <div className="ui six wide column">
           <h3>Playlists</h3>
           <PlaylistForm />
-          <PlaylistList playlists={playlists} selectedPlaylistId={selectedPlaylistId} />
+          <PlaylistList onClick={handleClick} playlists={playlists} selectedPlaylistId={selectedPlaylistId} />
         </div>
         <div className="ui ten wide column">
           <TrackList />
