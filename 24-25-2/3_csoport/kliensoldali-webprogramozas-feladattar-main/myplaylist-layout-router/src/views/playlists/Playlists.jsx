@@ -5,13 +5,15 @@ import { TrackList } from "./TrackList";
 
 import { useParams } from "react-router-dom";
 import { examplePlaylists } from "../../domain/playlist";
+import { useState } from "react";
 
 export const Playlists = () => {
   // const selectedPlaylistId = 1;
   const playlists = examplePlaylists;
   const { selectedPlaylistId } = useParams();
-  // Computed values
-  // const selectedPlaylist = playlists.find((pl) => pl.id === selectedPlaylistId);
+  const selectedPlaylist = playlists.find((playlist) => playlist.id === parseInt(selectedPlaylistId));
+
+  const [selectedTrack, setSelectedTrack] = useState({});
 
   return (
     <div className="ui container">
@@ -23,7 +25,7 @@ export const Playlists = () => {
           <PlaylistList playlists={playlists} selectedPlaylistId={parseInt(selectedPlaylistId)} />
         </div>
         <div className="ui ten wide column">
-          <TrackList />
+          <TrackList selectedTrack={selectedTrack} setSelectedTrack={setSelectedTrack} playlist={selectedPlaylist} />
         </div>
       </div>
       <div className="ui divider"></div>

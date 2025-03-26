@@ -1,0 +1,52 @@
+{
+  "animals": [
+    {
+      "name": "Lion",
+      "diet": "Carnivore",
+      "where_to_find": "Savannas of Sub-Saharan Africa",
+      "url": "https://example.com/lion-image.jpg"
+    },
+    {
+      "name": "Elephant",
+      "diet": "Herbivore",
+      "where_to_find": "Grasslands and forests in Africa and Asia",
+      "url": "https://example.com/elephant-image.jpg"
+    },
+    {
+      "name": "Penguin",
+      "diet": "Carnivore (Fish, Squid, Krill)",
+      "where_to_find": "Antarctica, Southern Hemisphere",
+      "url": "https://example.com/penguin-image.jpg"
+    },
+    {
+      "name": "Kangaroo",
+      "diet": "Herbivore",
+      "where_to_find": "Australia",
+      "url": "https://example.com/kangaroo-image.jpg"
+    },
+    {
+      "name": "Tiger",
+      "diet": "Carnivore",
+      "where_to_find": "Forests and grasslands in Asia",
+      "url": "https://example.com/tiger-image.jpg"
+    },
+    {
+      "name": "Giraffe",
+      "diet": "Herbivore",
+      "where_to_find": "Sub-Saharan Africa",
+      "url": "https://example.com/giraffe-image.jpg"
+    },
+    {
+      "name": "Polar Bear",
+      "diet": "Carnivore (Mainly seals)",
+      "where_to_find": "Arctic regions",
+      "url": "https://example.com/polar-bear-image.jpg"
+    },
+    {
+      "name": "Panda",
+      "diet": "Herbivore (Primarily Bamboo)",
+      "where_to_find": "Mountain ranges in central China",
+      "url": "https://example.com/panda-image.jpg"
+    }
+  ]
+}

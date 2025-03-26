@@ -19,7 +19,7 @@ A feladatban komponensekre bontva szerepel egy alkalmazás. Az egyes komponensek
    1. Használd a router `useParams` hook-ját a paraméter kiolvasásához! Ügyelj arra, hogy ez szövegként érkezik, és még számmá kell alakítanod!
    2. Oldd meg, hogy egy playlist-re kattintva az URL megváltozzon, és onnan olvasd ki a kiválasztott playlist-et! Ehhez alakítsd át a `div`-eket `Link`-ekké!
 5. Egészítsd ki a `Playlists` komponenst, hogy a playlist-en belüli trackek megjelenítésével és kiválasztásával!
-   1. Jelenítsd meg a kiválasztott playlist-et a `TrackList` komponensben!
+   1. Jelenítsd meg a kiválasztott playlist címét a `TrackList` komponensben!
    2. Vezess be egy konstans értéket, hogy melyik track van kiválasztva és jelenítsd meg a kiválasztott track-et!
    3. Tedd ezt az értéket változtathatóvá!
    4. Olvasd ki ezt az értéket az URL-ből!
