@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 import cn from "classnames";
-
-export function PlaylistList({ onClick, playlists, selectedPlaylistId }) {
+import { Link } from "react-router-dom";
+export function PlaylistList({ playlists, selectedPlaylistId }) {
   return (
     <div className="ui very relaxed selection list">
       {playlists.map((playlist) => (
-        <div
-          onClick={() => onClick(playlist.id)}
+        <Link
+          to={`/playlists/${playlist.id}`}
           className={cn("item", { active: playlist.id === selectedPlaylistId })}
           key={playlist.id}
         >
@@ -15,7 +15,7 @@ export function PlaylistList({ onClick, playlists, selectedPlaylistId }) {
             <div className="header">{playlist.title}</div>
             <div className="description">{playlist.tracks.length} songs</div>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );
