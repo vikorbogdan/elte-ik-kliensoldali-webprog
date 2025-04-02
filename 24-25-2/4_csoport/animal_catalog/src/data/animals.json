@@ -2,51 +2,136 @@
   "animals": [
     {
       "name": "Lion",
+      "avgWeight": "190 kg",
       "diet": "Carnivore",
-      "where_to_find": "Savannas of Sub-Saharan Africa",
-      "url": "https://example.com/lion-image.jpg"
-    },
-    {
-      "name": "Elephant",
-      "diet": "Herbivore",
-      "where_to_find": "Grasslands and forests in Africa and Asia",
-      "url": "https://example.com/elephant-image.jpg"
-    },
-    {
-      "name": "Penguin",
-      "diet": "Carnivore (Fish, Squid, Krill)",
-      "where_to_find": "Antarctica, Southern Hemisphere",
-      "url": "https://example.com/penguin-image.jpg"
-    },
-    {
-      "name": "Kangaroo",
-      "diet": "Herbivore",
-      "where_to_find": "Australia",
-      "url": "https://example.com/kangaroo-image.jpg"
-    },
-    {
-      "name": "Tiger",
-      "diet": "Carnivore",
-      "where_to_find": "Forests and grasslands in Asia",
-      "url": "https://example.com/tiger-image.jpg"
+      "avgLifespan": "12 years",
+      "img": "https://images.unsplash.com/photo-1614027164847-1b28cfe1df60?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
     },
     {
       "name": "Giraffe",
+      "avgWeight": "800 kg",
       "diet": "Herbivore",
-      "where_to_find": "Sub-Saharan Africa",
-      "url": "https://example.com/giraffe-image.jpg"
+      "avgLifespan": "25 years",
+      "img": "https://images.unsplash.com/photo-1547721064-da6cfb341d50?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
     },
     {
-      "name": "Polar Bear",
-      "diet": "Carnivore (Mainly seals)",
-      "where_to_find": "Arctic regions",
-      "url": "https://example.com/polar-bear-image.jpg"
+      "name": "Elephant",
+      "avgWeight": "5,500 kg",
+      "diet": "Herbivore",
+      "avgLifespan": "70 years",
+      "img": "https://images.unsplash.com/photo-1619111712102-8273abfea0aa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
     },
     {
-      "name": "Panda",
-      "diet": "Herbivore (Primarily Bamboo)",
-      "where_to_find": "Mountain ranges in central China",
-      "url": "https://example.com/panda-image.jpg"
+      "name": "Cheetah",
+      "avgWeight": "54 kg",
+      "diet": "Carnivore",
+      "avgLifespan": "10 years",
+      "img": "https://images.unsplash.com/photo-1582425312148-de9955e68e45?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      "name": "Hippo",
+      "avgWeight": "1,600 kg",
+      "diet": "Herbivore",
+      "avgLifespan": "40 years",
+      "img": "https://images.unsplash.com/photo-1605132410357-6d9002f13343?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      "name": "Zebra",
+      "avgWeight": "385 kg",
+      "diet": "Herbivore",
+      "avgLifespan": "25 years",
+      "img": "https://images.unsplash.com/photo-1517339234442-5cfdc9a90a69?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      "name": "Wildebeest",
+      "avgWeight": "250 kg",
+      "diet": "Herbivore",
+      "avgLifespan": "20 years",
+      "img": "https://images.unsplash.com/photo-1517118828960-de5ea37d8ae6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      "name": "Warthog",
+      "avgWeight": "75 kg",
+      "diet": "Omnivore",
+      "avgLifespan": "15 years",
+      "img": "https://images.unsplash.com/photo-1615239565879-f1d6962db52b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      "name": "Meerkat",
+      "avgWeight": "0.7 kg",
+      "diet": "Omnivore",
+      "avgLifespan": "12 years",
+      "img": "https://images.unsplash.com/photo-1630236400171-9e046451b0cb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      "name": "Honey badger",
+      "avgWeight": "12 kg",
+      "diet": "Omnivore",
+      "avgLifespan": "26 years",
+      "img": "https://images.unsplash.com/photo-1661954384810-a05bc0c58bdb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      "name": "Gazelle",
+      "avgWeight": "50 kg",
+      "diet": "Herbivore",
+      "avgLifespan": "12 years",
+      "img": "https://images.unsplash.com/photo-1580681477315-f272d1430746?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      "name": "Hyena",
+      "avgWeight": "60 kg",
+      "diet": "Carnivore",
+      "avgLifespan": "25 years",
+      "img": "https://images.unsplash.com/photo-1574354551226-523d79793bbd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fEh5ZW5hfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=300&q=60"
+    },
+    {
+      "name": "Aardvark",
+      "avgWeight": "60 kg",
+      "diet": "Omnivore",
+      "avgLifespan": "23 years",
+      "img": "https://www.theanimalspot.com/wp-content/uploads/2019/01/aardvarksmall.jpg"
+    },
+    {
+      "name": "Oryx",
+      "avgWeight": "205 kg",
+      "diet": "Herbivore",
+      "avgLifespan": "20 years",
+      "img": "https://images.unsplash.com/photo-1596706851443-bcc063b353fe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      "name": "Jackal",
+      "avgWeight": "9 kg",
+      "diet": "Omnivore",
+      "avgLifespan": "8 years",
+      "img": "https://images.unsplash.com/photo-1593426474014-d7e413744436?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      "name": "Springbok",
+      "avgWeight": "40 kg",
+      "diet": "Herbivore",
+      "avgLifespan": "10 years",
+      "img": "https://images.unsplash.com/photo-1598974356907-2be514a02a54?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      "name": "Rhino",
+      "avgWeight": "2,300 kg",
+      "diet": "Herbivore",
+      "avgLifespan": "40 years",
+      "img": "https://images.unsplash.com/photo-1639565312071-4f48d23cd8ed?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      "name": "Impala",
+      "avgWeight": "60 kg",
+      "diet": "Herbivore",
+      "avgLifespan": "12 years",
+      "img": "https://images.unsplash.com/photo-1598428004410-4a153bdf2c90?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8SW1wYWxhfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=300&q=60"
+    },
+    {
+      "name": "Kudu",
+      "avgWeight": "260 kg",
+      "diet": "Herbivore",
+      "avgLifespan": "8 years",
+      "img": "https://images.unsplash.com/photo-1570821393728-87a10f4430e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8S3VkdXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=300&q=60"
     }
   ]
 }

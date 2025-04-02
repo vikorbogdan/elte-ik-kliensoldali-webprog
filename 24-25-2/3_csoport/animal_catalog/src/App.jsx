@@ -1,20 +1,25 @@
-import { animals } from "./data/animals.json";
-
+import { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import animalsData from "./data/animals.json";
+import { AddAnimalPage } from "./pages/AddAnimalPage";
+import { AnimalListPage } from "./pages/AnimalListPage";
+import { MainLayout } from "./layouts/MainLayout";
 function App() {
+  const [animals, setAnimals] = useState(animalsData.animals);
   return (
-    <div className="flex flex-wrap gap-4 p-4">
-      {animals.map((animal) => (
-        <div className="flex flex-col p-4 text-center items-center border-2 rounded-2xl  border-cyan-600 w-56">
-          <img
-            src={animal.url}
-            className="rounded-full border-2 border-cyan-600 w-24 h-24"
+    <BrowserRouter>
+      <MainLayout>
+        <Routes>
+          <Route index element={<AnimalListPage animals={animals} />} />
+          <Route
+            path="/add"
+            element={
+              <AddAnimalPage animals={animals} setAnimals={setAnimals} />
+            }
           />
-          <h3 className="font-bold text-2xl">{animal.name}</h3>
-          <span className="text-sm">{animal.diet}</span>
-          <span className="text-sm">{animal.where_to_find}</span>
-        </div>
-      ))}
-    </div>
+        </Routes>
+      </MainLayout>
+    </BrowserRouter>
   );
 }
 
