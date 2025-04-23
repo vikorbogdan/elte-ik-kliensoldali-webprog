@@ -16,6 +16,18 @@ export function MainLayout({ children }) {
         >
           Állat hozzáadása
         </NavLink>
+        <NavLink
+          className="bg-blue-400 text-white hover:bg-blue-500 p-2 rounded-lg"
+          to="/favorites"
+        >
+          Kedvencek
+        </NavLink>
+        <NavLink
+          className="bg-blue-400 text-white hover:bg-blue-500 p-2 rounded-lg"
+          to="/login"
+        >
+          Bejelentkezés
+        </NavLink>
       </nav>
       {children}
     </>
